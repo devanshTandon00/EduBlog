@@ -1,17 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./App.css";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Home from "./pages/Home";
+import Blog from "./pages/Blog";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+//switch ensures the rendering of only one component
+// Route tag are the links b/w the components and placed b/w switch tags
+function App() {
+  return (
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/blog" component={Blog} />
+        </Switch>
+      </div>
+    </Router>
+  );
+}
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+ReactDOM.render(<App />, document.getElementById("root"));
+
+export default App;
