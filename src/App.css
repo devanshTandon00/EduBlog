@@ -9,7 +9,7 @@ body {
 .navbar {
   font-family: "Poppins", sans-serif;
   color: grey;
-  padding: 1em;
+  padding: 3em;
 }
 
 .navbar ul {
@@ -38,11 +38,43 @@ body {
 
 /* LOGO */
 .logo {
-  padding: 5px;
-  width: 50%;
+  padding: 1px;
+  width: 70%;
   height: auto;
 }
 
 .logo-header {
   float: left;
+}
+
+/* CARD */
+.card {
+  overflow: hidden;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+  background-color: white;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  border-radius: 1rem;
+  position: relative;
+  margin: 1.5rem;
+}
+
+.card__img{
+  box-shadow: 0 4px 25px rgba(14,36,49,.15);
+  border-radius: .5rem;
+  overflow: hidden;
+}
+
+.container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 25rem);
+  justify-content: center;
+}
+
+/* HEADER */
+.header {
+  margin: auto;
+  width: 80%;
+  height: 275px;
+  padding: 10px;
 }
