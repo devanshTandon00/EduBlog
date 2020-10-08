@@ -25,8 +25,6 @@ function Navbar() {
               Blog
             </Link>
           </li>
-          <li>Log in</li>
-          <li>Sign up</li>
         </nav>
       </div>
     </div>
