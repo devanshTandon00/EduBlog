@@ -58,6 +58,7 @@ function Login(){
         password:'',
     })
 
+    // spreads object into individual props and we provide prop so resulting object has updated and old props
     const handleChange = e => {
         setState({ ...state, [e.target.name]: e.target.value })
     } 
