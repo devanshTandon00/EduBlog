@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import Logo from "../images/logo.png";
 import "../App.css";
 import Logo from "../images/Logo.svg";
 
@@ -21,8 +20,13 @@ function Navbar() {
           <li>Demo</li>
           <li>Roadmap</li>
           <li>
-            <Link className="navbarBlog" to="/blog">
+            <Link className="navbarBlog" to="/">
               Blog
+            </Link>
+          </li>
+          <li>
+            <Link className="navbarBlog" to="/login">
+              Login
             </Link>
           </li>
         </nav>

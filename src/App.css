@@ -60,6 +60,9 @@ body {
 }
 
 .card__img {
+  width: 100%;
+  height: auto;
+  max-height: 225px;
   box-shadow: 0 4px 25px rgba(14, 36, 49, 0.15);
   border-radius: 0.5rem;
   overflow: hidden;
