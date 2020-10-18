@@ -1,0 +1,18 @@
+{
+  // CMPE 133 undergrads
+  // EDITOR
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  // JAVASCRIPT
+  // Force semicolons
+  "javascript.format.semicolons": "insert",
+  // JSX emmet
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+}

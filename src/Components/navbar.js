@@ -1,9 +1,10 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "../App.css";
-import Logo from "../images/Logo.svg";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import '../App.css';
+import Logo from '../images/Logo.svg';
 
-function Navbar() {
+
+export default function Navbar() {
   return (
     <div className="navbar">
       <div>
@@ -34,5 +35,3 @@ function Navbar() {
     </div>
   );
 }
-
-export default Navbar;

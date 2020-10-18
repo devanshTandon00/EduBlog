@@ -1,30 +1,31 @@
 import React, { Component } from "react";
 import Navbar from "../Components/navbar";
 import Article from "../Components/article";
-import { db, auth } from "../config/firebase";
+import { db } from "../config/firebase";
 
-export default class Home extends Component{
-state = {posts:null}
+export default class Home extends Component {
+  state = { posts: null };
 
-componentDidMount()
-  {
-    console.log('mounted')
-    db.collection('posts').get().then( snapshot => {
-      const posts = []
-      snapshot.forEach( doc => {
-        const data = doc.data()
-        posts.push(data)
-      })
-      this.setState({posts: posts })
-    })
-    .catch( error => console.log(error))
+  componentDidMount() {
+    console.log('mounted');
+    db.collection('posts').get()
+      .then(snapshot => {
+        const posts = [];
+        snapshot.forEach(doc => {
+          const data = doc.data();
+          posts.push(data);
+        });
+        this.setState({ posts: posts });
+      }).catch(error => console.error(error));
   }
-  render(){
-  return (
-    <>
-    <Navbar/>
-    <Article/>
-    </>
-  );
-}
+
+
+  render() {
+    return (
+      <>
+        <Navbar />
+        <Article />
+      </>
+    );
+  }
 }

@@ -1,0 +1,10 @@
+{
+  "configurations": [
+    {
+      "command": "npm start",
+      "name": "Run project locally",
+      "request": "launch",
+      "type": "node-terminal"
+    }
+  ]
+}
