@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import Navbar from "../Components/navbar";
-import fire from "../config/firebase";
+import React, { useState } from 'react';
+import Navbar from '../Components/navbar';
+import { auth } from '../config/firebase';
+
 
 // export default class Login extends Component {
 //     constructor(props){
@@ -53,42 +54,42 @@ import fire from "../config/firebase";
 // can use either class or function components
 
 export default function Login() {
-    const [state, setState] = useState({
-        email: '',
-        password: '',
-    });
+  const [state, setState] = useState({
+    email: '',
+    password: '',
+  });
 
-    // spreads object into individual props and we provide prop so resulting object has updated and old props
-    const handleChange = e => {
-        setState({ ...state, [e.target.name]: e.target.value });
-    };
+  // spreads object into individual props and we provide prop so resulting object has updated and old props
+  const handleChange = e => {
+    setState({ ...state, [e.target.name]: e.target.value });
+  };
 
-    const handleSubmit = e => {
-        e.preventDefault();
-        var email = state.email;
-        var password = state.password;
+  const handleSubmit = e => {
+    e.preventDefault();
+    var email = state.email;
+    var password = state.password;
 
-        // Firebase requires passwords to be of length 6 or above
-        if (password.length < 6) {
-            alert('Password must of length 6 or more.');
-        } else {
-            fire.auth().createUserWithEmailAndPassword(email, password);
-            alert('Signed Up Successfully!');
-        }
-    };
+    // Firebase requires passwords to be of length 6 or above
+    if (password.length < 6) {
+      alert('Password must of length 6 or more.');
+    } else {
+      auth.createUserWithEmailAndPassword(email, password);
+      alert('Signed Up Successfully!');
+    }
+  };
 
 
-    return (
-        <>
-            <Navbar />
-            <div>
-                <form>
-                    <input name="email" value={state.email} onChange={handleChange} placeholder="email"></input>
-                    <input name="password" value={state.password} onChange={handleChange} placeholder="password"></input>
-                    <button type="submit" onClick={handleSubmit}>Sign Up!</button>
-                    <button type="submit">Login!</button>
-                </form>
-            </div>
-        </>
-    );
+  return (
+    <>
+      <Navbar />
+      <div>
+        <form>
+          <input name="email" value={state.email} onChange={handleChange} placeholder="email"></input>
+          <input name="password" value={state.password} onChange={handleChange} placeholder="password"></input>
+          <button type="submit" onClick={handleSubmit}>Sign Up!</button>
+          <button type="submit">Login!</button>
+        </form>
+      </div>
+    </>
+  );
 }
