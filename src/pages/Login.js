@@ -98,21 +98,6 @@ export default function Login() {
     }
   };
 
-    return(
-        <>
-        <Navbar/>
-        <div>
-            <form>
-                <input name="email" value={state.email} onChange={handleChange} placeholder="email"></input>
-                <input name="password" value={state.password} onChange={handleChange} placeholder="password"></input>
-                <button type="submit" onClick={handleSubmit}>Sign Up</button>
-                <button type="submit">Login</button>
-            </form>
-        </div>
-        </>
-    );
-}
-
   return (
     <>
       <Navbar />
