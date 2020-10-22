@@ -1,37 +1,20 @@
-import React from "react";
-import Logo from "../images/Logo.svg";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React, { Component } from "react";
 import "../App.css";
+import { Link } from 'react-router-dom';
 
-function Card() {
-    
-      return (
-      <div className="container">
-        <div className="card">
-            <div className="card__img">
-            <img src={Logo} alt="website logo" className="logo" />
-            </div>
-            <h1>Title</h1>
-            <h3>Author</h3>
-        </div>
-
-        <div className="card">
-            <div className="card__img">
-            <img src={Logo} alt="website logo" className="logo" />
-            </div>
-            <h1>Title</h1>
-            <h3>Author</h3>
-        </div>
-
-        <div className="card">
-            <div className="card__img">
-            <img src={Logo} alt="website logo" className="logo" />
-            </div>
-            <h1>Title</h1>
-            <h3>Author</h3>
-        </div>
+export default class Card extends Component {
+  render() {
+    return (
+      <div className="card">
+        <Link to={"blog/" + this.props.postName} style={{ color: 'inherit', textDecoration: 'inherit' }}>
+          <div className="card__img">
+            <img src={this.props.image} alt="website logo" className="card__img" />
+          </div>
+          <h2>{this.props.postName}</h2>
+          <h3>By {this.props.author}</h3>
+          <p>{this.props.date}</p>
+        </Link>
       </div>
-  );
+    );
+  }
 }
-
-export default Card;
