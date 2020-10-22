@@ -60,20 +60,24 @@ function Login(){
 
     // spreads object into individual props and we provide prop so resulting object has updated and old props
     const handleChange = e => {
-        setState({ ...state, [e.target.name]: e.target.value })
+        const {name, value} = e.target
+
+        // using [name] allows us to dynamically set the name i.e. use the name constant defined above
+        
+        setState({ ...state, [name]: value })
     } 
 
     const handleSubmit = e => {
         e.preventDefault();
-        var email = state.email;
-        var password = state.password;
+        const {email, password} = state
+        // const email = state.email;
+        // const password = state.password;
 
         // Firebase requires passwords to be of length 6 or above
         if (password.length < 6) {
             alert("Password must of length 6 or more.");
         } else {
-            fire.auth().createUserWithEmailAndPassword(email, password); 
-            
+            fire.auth().createUserWithEmailAndPassword(email, password);      
             alert("Signed Up Successfully!");
         }
     }
@@ -85,8 +89,8 @@ function Login(){
             <form>
                 <input name="email" value={state.email} onChange={handleChange} placeholder="email"></input>
                 <input name="password" value={state.password} onChange={handleChange} placeholder="password"></input>
-                <button type="submit" onClick={handleSubmit}>Sign Up!</button>
-                <button type="submit">Login!</button>
+                <button type="submit" onClick={handleSubmit}>Sign Up</button>
+                <button type="submit">Login</button>
             </form>
         </div>
         </>
