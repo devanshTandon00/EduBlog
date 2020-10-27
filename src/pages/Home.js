@@ -3,7 +3,7 @@ import Navbar from '../Components/navbar';
 import Header from '../Components/header';
 import Card from '../Components/card';
 // eslint-disable-next-line
-import { db, auth } from '../config/firebase';
+import { db } from '../config/firebase';
 
 export default class Home extends Component {
   state = { posts: null };
@@ -20,7 +20,6 @@ export default class Home extends Component {
         this.setState({ posts: posts });
       }).catch(error => console.error(error));
   }
-
 
   render() {
     return (

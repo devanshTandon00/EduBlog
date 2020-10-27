@@ -19,7 +19,6 @@ export default class Home extends Component {
       }).catch(error => console.error(error));
   }
 
-
   render() {
     return (
       <>

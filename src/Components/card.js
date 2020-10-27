@@ -9,7 +9,7 @@ export default class Card extends Component {
         <Link to={"blog/" + this.props.postName} style={{ color: 'inherit', textDecoration: 'inherit' }}>
           <div className="card__img">
             <img src={this.props.image} alt="website logo" className="card__img" />
-          </div>
+          </div>  
           <h2>{this.props.postName}</h2>
           <h3>By {this.props.author}</h3>
           <p>{this.props.date}</p>

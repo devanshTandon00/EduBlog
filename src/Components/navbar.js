@@ -3,18 +3,13 @@ import { Link } from 'react-router-dom';
 import '../App.css';
 import Logo from '../images/Logo.svg';
 
-
 export default function Navbar() {
   return (
-    <div className="navbar">
-      <div>
-        <header className="logo-header">
-          <li>
-            <Link className="logo" to="/">
-              <img src={Logo} alt="website logo" className="logo" />
-            </Link>
-          </li>
-        </header>
+    <header className="logo-header">
+      <div className="navbar">
+        <Link className="logo" to="/">
+          <img src={Logo} alt="website logo" className="logo" />
+        </Link>
 
         <nav className="navRight">
           <li>About</li>
@@ -32,6 +27,7 @@ export default function Navbar() {
           </li>
         </nav>
       </div>
-    </div>
+    </header>
+  
   );
 }
