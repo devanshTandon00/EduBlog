@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 
-export default class Card extends Component {
+export default class Article extends Component {
   render() {
     return (
       <div className="card">

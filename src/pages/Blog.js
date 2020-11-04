@@ -3,13 +3,14 @@ import Navbar from "../Components/navbar";
 import Article from "../Components/article";
 import { db } from "../config/firebase";
 
-export default class Home extends Component {
+export default class Blog extends Component {
   state = { posts: null };
 
   componentDidMount() {
     console.log('mounted');
     db.collection('posts').get()
       .then(snapshot => {
+        console.log(snapshot);
         const posts = [];
         snapshot.forEach(doc => {
           const data = doc.data();

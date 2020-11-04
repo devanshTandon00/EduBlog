@@ -28,10 +28,10 @@ export default class Home extends Component {
         <Header />
         <div className='container'>
           {
-            this.state.posts && this.state.posts.map(posts => {
+            this.state.posts && this.state.posts.map((posts, index) => {
               return (
                 <Card
-                  key={posts.createdAt}
+                  key={index}
                   author={posts.author}
                   image={posts.image}
                   postName={posts.postName}
