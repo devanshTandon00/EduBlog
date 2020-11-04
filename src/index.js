@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './pages/Home';
 import Blog from './pages/Blog';
 import Login from './pages/Login';
+import AddPost from './pages/addPost'
 
 
 //switch ensures the rendering of only one component
@@ -17,11 +18,11 @@ export default function App() {
           <Route exact path="/" component={Home} />
           <Route path="/blog/:postName" component={Blog} />
           <Route path="/login" component={Login} />
+          <Route path="/addPost" component={AddPost} />
         </Switch>
       </div>
     </Router>
   );
 }
-
 
 ReactDOM.render(<App />, document.getElementById('root'));

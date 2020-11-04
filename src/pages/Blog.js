@@ -16,6 +16,7 @@ export default class Home extends Component {
           posts.push(data);
         });
         this.setState({ posts: posts });
+        console.log(posts);
       }).catch(error => console.error(error));
   }
 
@@ -24,6 +25,8 @@ export default class Home extends Component {
       <>
         <Navbar />
         <Article />
+        {/* <div className = "postIndividual">
+        </div> */}
       </>
     );
   }
