@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from '../Components/navbar';
 import { db } from "../config/firebase";
+import { Link } from "react-router-dom";
 
 export default function AddPost() {
     const [state, setState] = useState({
@@ -18,7 +19,7 @@ export default function AddPost() {
         // this returns postName
         console.log([name]);
 
-        // updates the state 
+        // updates the state
         setState({ ...state, [name]: value})
     }
 
@@ -33,42 +34,107 @@ export default function AddPost() {
             })
     }
 
-    return(
-        <>
-            <Navbar />
-            <form onSubmit = {handleSubmit}>
-                <h1>Create New Post</h1>
-                <div className = 'postInfo'> 
-                    <label>Enter post Name: 
-                        <input type = 'text' name = 'postName' value = {state.postName} onChange = {handleChange} placeholder = 'Enter the post title ... ' ></input>
-                    </label>
-                    <br></br>
-                    <br></br>
+    return (
+      <>
+        <Navbar />
+        <div className="card">
+          <Link
+            to={"/dashboard"}
+            style={{ float: "right", marginTop: 22, paddingRight: 30 }}
+          >
+            <button className="button2"> Back </button>
+          </Link>
+          <h1 style={{ textAlign: "left", paddingLeft: 30 }}>
+            Admin Dashboard
+          </h1>
+          <h2 style={{ textAlign: "left", paddingLeft: 30 }}>
+            Create New Post
+          </h2>
+          <form
+            style={{ textAlign: "left", marginLeft: 30, marginBottom: 20 }}
+            onSubmit={handleSubmit}
+          >
+            <div className="postInfo">
+              <label>
+                Post Title:
+                <br></br>
+                <br></br>
+                <input
+                  type="text"
+                  name="postName"
+                  value={state.postName}
+                  onChange={handleChange}
+                  placeholder="Enter the post title..."
+                ></input>
+              </label>
+              <br></br>
+              <br></br>
 
-                    <label>Enter post Content: 
-                        <input type = 'text' name = 'postContent' value = {state.postContent} onChange = {handleChange} placeholder = 'Enter the post conent ... ' ></input>
-                    </label>
-                    <br></br>
-                    <br></br>
+              <label>
+                Post Content:
+                <br></br>
+                <br></br>
+                  <input
+                  style={{height: 500, width: 800}}
+                    type="text"
+                    name="postContent"
+                    value={state.postContent}
+                    onChange={handleChange}
+                  ></input>
+              </label>
+              <br></br>
+              <br></br>
 
-                    <label> Enter image: 
-                        <input type = 'text' name = 'image' value = {state.image} onChange = {handleChange} placeholder = 'Enter the image URl ... '></input>
-                    </label>
-                    <br></br><br></br>
+              <label>
+                Image URL:
+                <br></br>
+                <br></br>
+                <input
+                  type="text"
+                  name="image"
+                  value={state.image}
+                  onChange={handleChange}
+                  placeholder="Enter the image URL..."
+                ></input>
+              </label>
+              <br></br>
+              <br></br>
 
-                    <label> Enter author name: 
-                        <input type = 'text' name = 'authName' value = {state.authName} onChange = {handleChange} placeholder = 'Enter the autor name ... '></input>
-                    </label>
-                    <br></br>
-                    <br></br>
+              <label>
+                {" "}
+                Author Name:
+                <br></br>
+                <br></br>
+                <input
+                  type="text"
+                  name="authName"
+                  value={state.authName}
+                  onChange={handleChange}
+                  placeholder="Enter the autor name..."
+                ></input>
+              </label>
+              <br></br>
+              <br></br>
 
-                    <label> Enter date: 
-                        <input type = 'text' name = 'date' value = {state.date} onChange = {handleChange} placeholder = 'Enter the date of creation ... '></input>
-                    </label>
-                    <br></br><br></br>
-                </div>
-                <button>Submit</button>
-            </form>
-        </>
-    )
+              <label>
+                {" "}
+                Date:
+                <br></br>
+                <br></br>
+                <input
+                  type="text"
+                  name="date"
+                  value={state.date}
+                  onChange={handleChange}
+                  placeholder="Enter the date of creation ... "
+                ></input>
+              </label>
+              <br></br>
+              <br></br>
+            </div>
+            <button className="button">Submit</button>
+          </form>
+        </div>
+      </>
+    );
 }
