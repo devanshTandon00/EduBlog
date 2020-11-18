@@ -25,9 +25,13 @@ export default function Navbar() {
               Login
             </Link>
           </li>
+          <li>
+            <Link className="navbarBlog" to="/dashboard">
+              Dash
+            </Link>
+          </li>
         </nav>
       </div>
     </header>
-  
   );
 }

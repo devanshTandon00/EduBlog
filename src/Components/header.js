@@ -4,20 +4,15 @@ import { Link } from 'react-router-dom';
 import Navbar from "./navbar";
 
 function Header() {
-
-  const addPost = () => {
-    
-  }
-
-  const deletePost = () => {
-
-  }
-
   return (
     <div className="header">
-      <Link to = {"addPost/"}> 
-        <button> Add Post </button>
-      </Link>
+      <img
+        src={
+          "https://www.sjsu.edu/communications/pics/ADJ_sjsu-gate-dschmitz-111417-3154_flat.jpg"
+        }
+        alt="card image"
+        className="header_img"
+      />
     </div>
   );
 }

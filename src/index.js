@@ -5,7 +5,9 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './pages/Home';
 import Blog from './pages/Blog';
 import Login from './pages/Login';
-import AddPost from './pages/addPost'
+import AddPost from './pages/addPost';
+import EditPost from "./pages/editPost";
+import Dashboard from "./pages/Dashboard";
 
 
 //switch ensures the rendering of only one component
@@ -19,6 +21,8 @@ export default function App() {
           <Route path="/blog/:postName" component={Blog} />
           <Route path="/login" component={Login} />
           <Route path="/addPost" component={AddPost} />
+          <Route path="/editPost" component={EditPost} />
+          <Route path="/dashboard" component={Dashboard} />
         </Switch>
       </div>
     </Router>

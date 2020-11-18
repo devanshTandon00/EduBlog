@@ -26,8 +26,6 @@ export default class Blog extends Component {
       <>
         <Navbar />
         <Article />
-        {/* <div className = "postIndividual">
-        </div> */}
       </>
     );
   }
