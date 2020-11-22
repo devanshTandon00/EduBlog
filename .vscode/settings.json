@@ -15,4 +15,5 @@
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
   },
+  "maven.view": "hierarchical",
 }
