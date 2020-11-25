@@ -80,6 +80,7 @@ export default function EditPost() {
                 name="postName"
                 value={state.postName}
                 onChange={handleChange}
+                required={true}
                 placeholder="Enter the post title..."
               ></input>
             </label>
