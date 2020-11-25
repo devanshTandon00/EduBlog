@@ -80,7 +80,6 @@ export default function EditPost() {
                 name="postName"
                 value={state.postName}
                 onChange={handleChange}
-                required={true}
                 placeholder="Enter the post title..."
               ></input>
             </label>
@@ -97,7 +96,6 @@ export default function EditPost() {
                 name="postContent"
                 value={state.postContent}
                 onChange={handleChange}
-                required={true}
                 placeholder="Enter post content"
               ></input>
             </label>
@@ -129,7 +127,6 @@ export default function EditPost() {
                 name="authName"
                 value={state.authName}
                 onChange={handleChange}
-                required={true}
                 placeholder="Enter the author name..."
               ></input>
             </label>

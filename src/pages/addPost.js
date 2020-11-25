@@ -4,6 +4,14 @@ import { db } from "../config/firebase";
 import { Link } from "react-router-dom";
 
 export default function AddPost() {
+  const initialState = {
+    postName: "",
+    postContent: "",
+    image: "",
+    authName: "",
+    date: new Date().toLocaleString(),
+  };
+
   const [state, setState] = useState({
     postName: "",
     postContent: "",
@@ -24,6 +32,7 @@ export default function AddPost() {
   };
 
   const handleSubmit = (e) => {
+    e.preventDefault();
     db.collection("posts").add({
       author: state.authName,
       createdAt: state.date,
@@ -31,6 +40,8 @@ export default function AddPost() {
       postContent: state.postContent,
       postName: state.postName,
     });
+
+    setState({ ...initialState });
   };
 
   return (
