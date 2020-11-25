@@ -5,24 +5,24 @@ import { db } from "../config/firebase";
 
 export default class Card2 extends Component {
   clickHandler(e) {
-     db.collection("posts")
-       .where("postName", "==", this.props.postName)
-       .get()
-       .then((snapshot) => {
-         snapshot.forEach((doc) => {
-           console.log(doc.id, "=>", doc.data());
-           db.collection("posts")
-             .doc(doc.id)
-             .delete()
-             .then(() => {
-               alert("Post successfully deleted!");
-               window.location.reload(false);
-             })
-             .catch((error) => {
-               alert("Could not delete post!");
-             });
-         });
-       });
+    db.collection("posts")
+      .where("postName", "==", this.props.postName)
+      .get()
+      .then((snapshot) => {
+        snapshot.forEach((doc) => {
+          console.log(doc.id, "=>", doc.data());
+          db.collection("posts")
+            .doc(doc.id)
+            .delete()
+            .then(() => {
+              alert("Post successfully deleted!");
+              window.location.reload(false);
+            })
+            .catch((error) => {
+              alert("Could not delete post!");
+            });
+        });
+      });
   }
 
   render() {
@@ -36,7 +36,10 @@ export default class Card2 extends Component {
           Delete
         </button>
         <Link
-          to={"editPost/" + this.props.postName}
+          to={{
+            pathname: "editPost/" + this.props.postName,
+            aboutProps: { postName: this.props.postName },
+          }}
           style={{ float: "right", paddingRight: 10, marginTop: 20 }}
         >
           <button className="button">Edit</button>
