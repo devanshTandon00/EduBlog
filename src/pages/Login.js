@@ -1,22 +1,20 @@
-import React, { useState, Component } from 'react';
-import Navbar from '../Components/navbar';
-import firebase, { auth } from '../config/firebase';
+import React, { useState, Component } from "react";
+import Navbar from "../Components/navbar";
+import firebase, { auth } from "../config/firebase";
 import { Redirect } from "react-router-dom";
-import Dashboard from './Dashboard';
-
+import Dashboard from "./Dashboard";
 
 export default class Login extends Component {
-
   constructor(props) {
     super();
     this.state = {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
       user: null,
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleSignUp = this.handleSignUp.bind(this);
+    //this.handleSignUp = this.handleSignUp.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
     this.authListener = this.authListener.bind(this);
   }
@@ -39,29 +37,21 @@ export default class Login extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
-  handleSignUp(e) {
-    e.preventDefault();
-    var email = this.state.email;
-    var password = this.state.password;
-
-    // Firebase requires passwords to be of length 6 or above
-    if (password.length < 6) {
-      alert("Password must of length 6 or more.");
-    } else {
-      firebase.auth().createUserWithEmailAndPassword(email, password);
-      alert("Signed Up Successfully!");
-    }
-  }
-
   handleLogin(e) {
     e.preventDefault();
     var email = this.state.email;
     var password = this.state.password;
-    firebase.auth().signInWithEmailAndPassword(email, password).then((user) => {
-      console.log(email + " logged in!");
-    }).catch((err) => {
-      console.log(err);
-    });
+
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then((user) => {
+        console.log(email + " logged in!");
+      })
+      .catch((err) => {
+        console.log(err);
+        alert("Invalid username/password");
+      });
   }
 
   render() {
@@ -72,18 +62,68 @@ export default class Login extends Component {
     return (
       <>
         <Navbar />
-        <div>
+        <div className="card">
+          <h1 style={{ textAlign: "left", paddingLeft: 30 }}>Login</h1>
+
           <form>
-            <input name="email" value={this.state.email} onChange={this.handleChange} placeholder="email"></input>
-            <input name="password" value={this.state.password} onChange={this.handleChange} placeholder="password"></input>
-            <button type="submit" onClick={this.handleSignUp}>Sign Up!</button>
-            <button type="submit" onClick={this.handleLogin}>Login!</button>
+            <h2 style={{ textAlign: "left", paddingLeft: 30 }}>Username</h2>
+
+            <input
+              style={{ float: "left", marginLeft: 30 }}
+              name="email"
+              value={this.state.email}
+              onChange={this.handleChange}
+              placeholder=" Enter Email"
+            ></input>
+
+            <br />
+
+            <h2 style={{ textAlign: "left", paddingLeft: 30 }}>Password</h2>
+
+            <input
+              style={{ float: "left", marginLeft: 30 }}
+              type="password"
+              name="password"
+              value={this.state.password}
+              onChange={this.handleChange}
+              placeholder=" Enter Password"
+            ></input>
+
+            <br />
+            <br />
+
+            <button
+              style={{ float: "left", marginLeft: 30, marginBottom: 30 }}
+              className="button2"
+              type="submit"
+              onClick={this.handleLogin}
+            >
+              Login!
+            </button>
           </form>
         </div>
       </>
     );
   }
 }
+
+//handleSignUp(e) {
+//e.preventDefault();
+//var email = this.state.email;
+//var password = this.state.password;
+
+// Firebase requires passwords to be of length 6 or above
+//if (password.length < 6) {
+//alert("Password must of length 6 or more.");
+//} else {
+// firebase.auth().createUserWithEmailAndPassword(email, password);
+//alert("Signed Up Successfully!");
+//}
+//}
+
+//<button type="submit" onClick={this.handleSignUp}>
+//Sign Up!
+//</button>
 
 // can use either class or function components
 

@@ -60,7 +60,13 @@ export default class Dashboard extends Component {
             Admin Dashboard
           </h1>
           <h1>Welcome, {this.currentUser.email}</h1>
-          <button type="submit" onClick={this.handleSignOut}>Sign Out!</button>
+          <button
+            className="button2"
+            type="submit"
+            onClick={this.handleSignOut}
+          >
+            Sign Out!
+          </button>
           <h2 style={{ textAlign: "left", paddingLeft: 30 }}>Blog Archive</h2>
           <div className="container2">
             {this.state.posts &&
