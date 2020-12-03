@@ -63,42 +63,41 @@ export default class Login extends Component {
       <>
         <Navbar />
         <div className="card">
-          <h1 style={{ textAlign: "left", paddingLeft: 30 }}>Login</h1>
-
           <form>
-            <h2 style={{ textAlign: "left", paddingLeft: 30 }}>Username</h2>
+            <h2>Username</h2>
 
             <input
-              style={{ float: "left", marginLeft: 30 }}
+              style={{ padding: 10, borderRadius: 7, outline: "none" }}
               name="email"
               value={this.state.email}
               onChange={this.handleChange}
               placeholder=" Enter Email"
+              className="loginInput"
             ></input>
 
             <br />
 
-            <h2 style={{ textAlign: "left", paddingLeft: 30 }}>Password</h2>
+            <h2>Password</h2>
 
             <input
-              style={{ float: "left", marginLeft: 30 }}
+              style={{ padding: 10, borderRadius: 7, outline: "none" }}
               type="password"
               name="password"
               value={this.state.password}
               onChange={this.handleChange}
               placeholder=" Enter Password"
+              className="loginInput"
             ></input>
 
             <br />
             <br />
 
             <button
-              style={{ float: "left", marginLeft: 30, marginBottom: 30 }}
               className="button2"
               type="submit"
               onClick={this.handleLogin}
             >
-              Login!
+              Login
             </button>
           </form>
         </div>
