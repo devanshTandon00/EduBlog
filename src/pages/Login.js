@@ -2,7 +2,6 @@ import React, { useState, Component } from "react";
 import Navbar from "../Components/navbar";
 import firebase, { auth } from "../config/firebase";
 import { Redirect } from "react-router-dom";
-import Dashboard from "./Dashboard";
 
 export default class Login extends Component {
   constructor(props) {
@@ -62,44 +61,49 @@ export default class Login extends Component {
     return (
       <>
         <Navbar />
-        <div className="card">
-          <form>
-            <h2>Username</h2>
+        <div className="card4">
+          <div className="container3">
+            <form>
+              <h1 style={{ textAlign: "left", paddingLeft: 30 }}>Login</h1>
+              <div class="fields">
+                <h2 style={{ textAlign: "left", paddingLeft: 30 }}>Username</h2>
+                <div class="entry">
+                  <input
+                    name="email"
+                    value={this.state.email}
+                    onChange={this.handleChange}
+                  ></input>
+                </div>
 
-            <input
-              style={{ padding: 10, borderRadius: 7, outline: "none" }}
-              name="email"
-              value={this.state.email}
-              onChange={this.handleChange}
-              placeholder=" Enter Email"
-              className="loginInput"
-            ></input>
+                <h2 style={{ textAlign: "left", paddingLeft: 30 }}>Password</h2>
+                <div class="entry">
+                  <input
+                    type="password"
+                    name="password"
+                    value={this.state.password}
+                    onChange={this.handleChange}
+                  ></input>
+                </div>
+              </div>
 
-            <br />
+              <button
+                style={{ float: "left", marginLeft: 30, marginBottom: 30 }}
+                className="button2"
+                type="submit"
+                onClick={this.handleLogin}
+              >
+                Login
+              </button>
+            </form>
 
-            <h2>Password</h2>
-
-            <input
-              style={{ padding: 10, borderRadius: 7, outline: "none" }}
-              type="password"
-              name="password"
-              value={this.state.password}
-              onChange={this.handleChange}
-              placeholder=" Enter Password"
-              className="loginInput"
-            ></input>
-
-            <br />
-            <br />
-
-            <button
-              className="button2"
-              type="submit"
-              onClick={this.handleLogin}
-            >
-              Login
-            </button>
-          </form>
+            <div>
+              <img
+                style={{ float: "left", marginLeft: 50 }}
+                src={"https://i.imgur.com/6IERj0d.jpg"}
+                alt="card image"
+              />
+            </div>
+          </div>
         </div>
       </>
     );

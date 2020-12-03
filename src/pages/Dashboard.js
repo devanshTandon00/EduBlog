@@ -49,7 +49,7 @@ export default class Dashboard extends Component {
     return (
       <>
         <Navbar />
-        <div className="card">
+        <div className="card3">
           <Link
             to={"addPost/"}
             style={{ float: "right", marginTop: 22, paddingRight: 30 }}

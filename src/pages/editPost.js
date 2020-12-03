@@ -55,7 +55,7 @@ export default function EditPost() {
   return (
     <>
       <Navbar />
-      <div className="card">
+      <div className="card3">
         <Link
           to={"/dashboard"}
           style={{ float: "right", marginTop: 22, paddingRight: 30 }}
@@ -70,85 +70,60 @@ export default function EditPost() {
           style={{ textAlign: "left", marginLeft: 30, marginBottom: 20 }}
           onSubmit={handleSubmit}
         >
-          <div className="postInfo">
-            <label>
-              Post Title:
-              <br></br>
-              <br></br>
-              <input
-                type="text"
-                name="postName"
-                value={state.postName}
-                onChange={handleChange}
-                required={true}
-                placeholder="Enter the post title..."
-              ></input>
-            </label>
-            <br></br>
-            <br></br>
+          <div className="fields">
+              <h3>Post Title:</h3>
+              <div class="entry">
+                <input
+                  type="text"
+                  name="postName"
+                  value={state.postName}
+                  onChange={handleChange}
+                  required={true}
+                ></input>
+              </div>
 
-            <label>
-              Post Content:
-              <br></br>
-              <br></br>
-              <input
-                style={{ height: 500, width: 800 }}
-                type="text"
-                name="postContent"
-                value={state.postContent}
-                onChange={handleChange}
-                placeholder="Enter post content"
-              ></input>
-            </label>
-            <br></br>
-            <br></br>
+              <h3>Post Content:</h3>
+              <div class="entry">
+                <input
+                  style={{ height: 500, width: 800 }}
+                  type="text"
+                  name="postContent"
+                  value={state.postContent}
+                  onChange={handleChange}
+                ></input>
+              </div>
 
-            <label>
-              Image URL:
-              <br></br>
-              <br></br>
-              <input
-                type="text"
-                name="image"
-                value={state.image}
-                onChange={handleChange}
-                placeholder="Enter the image URL..."
-              ></input>
-            </label>
-            <br></br>
-            <br></br>
+              <h3>Image URL:</h3>
+              <div class="entry">
+                <input
+                  type="text"
+                  name="image"
+                  value={state.image}
+                  onChange={handleChange}
+                ></input>
+              </div>
 
-            <label>
-              {" "}
-              Author Name:
-              <br></br>
-              <br></br>
-              <input
-                type="text"
-                name="authName"
-                value={state.authName}
-                onChange={handleChange}
-                placeholder="Enter the author name..."
-              ></input>
-            </label>
-            <br></br>
-            <br></br>
+              <h3>Author Name:</h3>
+              <div class="entry">
+                <input
+                  type="text"
+                  name="authName"
+                  value={state.authName}
+                  onChange={handleChange}
+                ></input>
+              </div>
 
-            <label>
-              {" "}
-              Date:
-              <br></br>
-              <br></br>
-              <input
-                type="text"
-                name="date"
-                value={state.date}
-                onChange={handleChange}
-                readOnly={true}
-              ></input>
-            </label>
-            <br></br>
-            <br></br>
+              <h3>Date:</h3>
+              <div class="entry">
+                <input
+                  type="text"
+                  name="date"
+                  value={state.date}
+                  onChange={handleChange}
+                  readOnly={true}
+                ></input>
+              </div>
+
           </div>
           <button className="button" type="submit">
             Submit
