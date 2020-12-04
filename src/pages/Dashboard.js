@@ -51,7 +51,14 @@ export default class Dashboard extends Component {
         <Navbar />
         <div className="card3">
           <svg
-            style={{ float: "left", width: 45, height: 45, marginLeft: 30, marginRight: 10, marginTop: 18 }}
+            style={{
+              float: "left",
+              width: 45,
+              height: 45,
+              marginLeft: 30,
+              marginRight: 10,
+              marginTop: 18,
+            }}
             class="svg-icon"
             viewBox="0 0 20 20"
           >
@@ -63,18 +70,25 @@ export default class Dashboard extends Component {
           >
             <button className="button2"> Create Post </button>
           </Link>
-          <h1 style={{ textAlign: "left", paddingLeft: 30, marginTop: 20, fontSize: 35 }}>
+          <h1
+            style={{
+              textAlign: "left",
+              paddingLeft: 30,
+              marginTop: 20,
+              fontSize: 35,
+            }}
+          >
             Admin Dashboard
           </h1>
-          <h1 style={{fontSize: 28}}>Welcome, {this.currentUser.email}</h1>
+          <h1 style={{ fontSize: 28 }}>Welcome, {this.currentUser.email}</h1>
           <button
             className="button2"
             type="submit"
             onClick={this.handleSignOut}
           >
-            Sign Out!
+            Sign Out
           </button>
-          <h2 style={{ textAlign: "left", paddingLeft: 30 }}>Blog Archive</h2>
+          <h1 style={{ textAlign: "left", paddingLeft: 30 }}>Blog Archive</h1>
           <div className="container2">
             {this.state.posts &&
               this.state.posts.map((posts, index) => {

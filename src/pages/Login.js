@@ -65,9 +65,9 @@ export default class Login extends Component {
           <div className="container3">
             <form>
               <h1 style={{ textAlign: "left", paddingLeft: 30 }}>Login</h1>
-              <div class="fields">
+              <div className="fields">
                 <h2 style={{ textAlign: "left", paddingLeft: 30 }}>Username</h2>
-                <div class="entry">
+                <div className="entry">
                   <input
                     name="email"
                     value={this.state.email}
@@ -76,7 +76,7 @@ export default class Login extends Component {
                 </div>
 
                 <h2 style={{ textAlign: "left", paddingLeft: 30 }}>Password</h2>
-                <div class="entry">
+                <div className="entry">
                   <input
                     type="password"
                     name="password"
