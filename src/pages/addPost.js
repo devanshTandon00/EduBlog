@@ -97,14 +97,14 @@ export default function AddPost() {
 
             <h3>Post Content:</h3>
             <div class="entry">
-              <input
+              <textarea
                 style={{ height: 500, width: 800 }}
                 type="text"
                 name="postContent"
                 value={state.postContent}
                 onChange={handleChange}
                 required={true}
-              ></input>
+              ></textarea>
             </div>
 
             <h3>Image URL:</h3>
