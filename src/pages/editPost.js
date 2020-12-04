@@ -63,6 +63,7 @@ export default function EditPost() {
             postContent: state.postContent,
             postName: state.postName,
           });
+          window.history.back();
         });
       });
 
@@ -126,7 +127,7 @@ export default function EditPost() {
             <h3>Post Content:</h3>
             <div class="entry">
               <textarea
-                style={{ height: 500, width: 800 }}
+                style={{ height: 500}}
                 type="text"
                 name="postContent"
                 value={state.postContent}

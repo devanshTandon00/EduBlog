@@ -42,6 +42,7 @@ export default function AddPost() {
     });
 
     setState({ ...initialState });
+    window.history.back();
   };
 
   return (
