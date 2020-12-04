@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../Components/navbar";
 import { db } from "../config/firebase";
 import { Link, useLocation } from "react-router-dom";
@@ -10,7 +10,7 @@ export default function EditPost() {
     postName: "",
     postContent: "",
     image: "",
-    authName: "",
+    author: "",
     date: new Date().toLocaleString(),
   };
 
@@ -18,9 +18,27 @@ export default function EditPost() {
     postName: "",
     postContent: "",
     image: "",
-    authName: "",
+    author: "",
     date: new Date().toLocaleString(),
   });
+
+  useEffect(() => {
+    db.collection("posts")
+      .where("postName", "==", location.aboutProps.postName)
+      .get()
+      .then((snapshot) => {
+        snapshot.forEach((doc) => {
+          const data = doc.data();
+          setState({
+            postName: data.postName,
+            author: data.author,
+            createdAt: data.createdAt,
+            image: data.image,
+            postContent: data.postContent,
+          });
+        });
+      });
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -40,8 +58,7 @@ export default function EditPost() {
         snapshot.forEach((doc) => {
           console.log(doc.id, doc.data());
           doc.ref.update({
-            author: state.authName,
-            createdAt: state.date,
+            author: state.author,
             image: state.image,
             postContent: state.postContent,
             postName: state.postName,
@@ -89,6 +106,7 @@ export default function EditPost() {
         <h2 style={{ textAlign: "left", paddingLeft: 30 }}>Edit Post</h2>
 
         {/* <button onClick={handleSubmit}>Tester</button> */}
+
         <form
           style={{ textAlign: "left", marginLeft: 30, marginBottom: 20 }}
           onSubmit={handleSubmit}
@@ -107,13 +125,13 @@ export default function EditPost() {
 
             <h3>Post Content:</h3>
             <div class="entry">
-              <input
+              <textarea
                 style={{ height: 500, width: 800 }}
                 type="text"
                 name="postContent"
                 value={state.postContent}
                 onChange={handleChange}
-              ></input>
+              ></textarea>
             </div>
 
             <h3>Image URL:</h3>
@@ -131,7 +149,7 @@ export default function EditPost() {
               <input
                 type="text"
                 name="authName"
-                value={state.authName}
+                value={state.author}
                 onChange={handleChange}
               ></input>
             </div>
