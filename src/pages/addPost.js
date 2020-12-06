@@ -115,6 +115,7 @@ export default function AddPost() {
                 name="image"
                 value={state.image}
                 onChange={handleChange}
+                style={{ wordWrap: "break-word" }}
               ></input>
             </div>
 
