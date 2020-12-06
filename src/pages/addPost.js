@@ -99,7 +99,7 @@ export default function AddPost() {
             <h3>Post Content:</h3>
             <div class="entry">
               <textarea
-                style={{ height: 500, width: 800 }}
+                style={{ height: 500 }}
                 type="text"
                 name="postContent"
                 value={state.postContent}
