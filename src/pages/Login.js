@@ -10,15 +10,18 @@ export default class Login extends Component {
       email: "",
       password: "",
       user: null,
+      emailHasBeenSent: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
     //this.handleSignUp = this.handleSignUp.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
     this.authListener = this.authListener.bind(this);
+    this.sendResetEmail = this.sendResetEmail.bind(this);
   }
 
   componentDidMount() {
+    console.log(this.state.email);
     this.authListener();
   }
 
@@ -53,6 +56,26 @@ export default class Login extends Component {
       });
   }
 
+  sendResetEmail(event) {
+    const email = this.state.email;
+    event.preventDefault();
+
+    firebase
+      .auth()
+      .sendPasswordResetEmail(email)
+      .then(() => {
+        this.setState({ emailHasBeenSent: true });
+        setTimeout(() => {
+          this.setState({ emailHasBeenSent: false });
+        }, 3000);
+        console.log(this.state.emailHasBeenSent);
+      })
+      .catch(() => {
+        console.log("error");
+      });
+    alert("Check your email");
+  }
+
   render() {
     // If there already is a user logged in, redirect to the dashboard
     if (this.state.user) {
@@ -85,7 +108,21 @@ export default class Login extends Component {
                   ></input>
                 </div>
               </div>
-
+              <button
+                className="forgotPassBtn"
+                style={{
+                  float: "left",
+                  marginLeft: 30,
+                  marginBottom: 30,
+                }}
+                type="submit"
+                onClick={this.sendResetEmail}
+              >
+                Forgot Password?
+              </button>
+              <br></br>
+              <br></br>
+              <br></br>
               <button
                 style={{ float: "left", marginLeft: 30, marginBottom: 30 }}
                 className="button2"

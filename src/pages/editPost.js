@@ -127,11 +127,12 @@ export default function EditPost() {
             <h3>Post Content:</h3>
             <div class="entry">
               <textarea
-                style={{ height: 500}}
+                style={{ height: 500 }}
                 type="text"
                 name="postContent"
                 value={state.postContent}
                 onChange={handleChange}
+                required={true}
               ></textarea>
             </div>
 
@@ -142,6 +143,7 @@ export default function EditPost() {
                 name="image"
                 value={state.image}
                 onChange={handleChange}
+                required={true}
               ></input>
             </div>
 
@@ -152,6 +154,7 @@ export default function EditPost() {
                 name="authName"
                 value={state.author}
                 onChange={handleChange}
+                required={true}
               ></input>
             </div>
 

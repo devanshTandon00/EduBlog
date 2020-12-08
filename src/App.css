@@ -214,3 +214,9 @@ h3 {
   transition: 3s all;
   /* box-shadow: 6px 5px 6px 5px #84b3e2, -6px -6px 6px rgb(219, 131, 131); */
 }
+
+.forgotPassBtn {
+  position: absolute;
+  border: none;
+  font-size: 12pt;
+}
