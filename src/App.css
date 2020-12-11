@@ -220,3 +220,7 @@ h3 {
   border: none;
   font-size: 12pt;
 }
+
+.forgotPassBtn:hover {
+  text-decoration: underline;
+}

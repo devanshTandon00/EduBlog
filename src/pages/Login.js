@@ -43,17 +43,22 @@ export default class Login extends Component {
     e.preventDefault();
     var email = this.state.email;
     var password = this.state.password;
-
-    firebase
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .then((user) => {
-        console.log(email + " logged in!");
-      })
-      .catch((err) => {
-        console.log(err);
-        alert("Invalid username/password");
-      });
+    if (email.length === 0) {
+      alert("Email field cannot be empty");
+    } else if (password.length === 0) {
+      alert("Password field cannot be empty");
+    } else {
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(email, password)
+        .then((user) => {
+          console.log(email + " logged in!");
+        })
+        .catch((err) => {
+          console.log(err);
+          alert("Invalid username/password");
+        });
+    }
   }
 
   sendResetEmail(event) {
@@ -108,11 +113,13 @@ export default class Login extends Component {
                   ></input>
                 </div>
               </div>
+
               <button
                 className="forgotPassBtn"
                 style={{
                   float: "left",
-                  marginLeft: 30,
+                  marginLeft: -190,
+                  marginTop: 10,
                   marginBottom: 30,
                 }}
                 type="submit"
@@ -120,11 +127,9 @@ export default class Login extends Component {
               >
                 Forgot Password?
               </button>
-              <br></br>
-              <br></br>
-              <br></br>
+
               <button
-                style={{ float: "left", marginLeft: 30, marginBottom: 30 }}
+                style={{ float: "right", marginRight: 50 }}
                 className="button2"
                 type="submit"
                 onClick={this.handleLogin}
