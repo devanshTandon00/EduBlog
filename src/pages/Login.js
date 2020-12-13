@@ -65,20 +65,25 @@ export default class Login extends Component {
     const email = this.state.email;
     event.preventDefault();
 
-    firebase
-      .auth()
-      .sendPasswordResetEmail(email)
-      .then(() => {
-        this.setState({ emailHasBeenSent: true });
-        setTimeout(() => {
-          this.setState({ emailHasBeenSent: false });
-        }, 3000);
-        console.log(this.state.emailHasBeenSent);
-      })
-      .catch(() => {
-        console.log("error");
-      });
-    alert("Check your email");
+    console.log(email);
+    if (email != "") {
+      firebase
+        .auth()
+        .sendPasswordResetEmail(email)
+        .then(() => {
+          this.setState({ emailHasBeenSent: true });
+          setTimeout(() => {
+            this.setState({ emailHasBeenSent: false });
+          }, 3000);
+          console.log(this.state.emailHasBeenSent);
+        })
+        .catch(() => {
+          console.log("error");
+        });
+      alert("Check your email");
+    } else {
+      alert("Enter your email");
+    }
   }
 
   render() {
