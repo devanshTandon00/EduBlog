@@ -1,8 +1,11 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import '../App.css';
-import Logo from '../images/Logo.svg';
+import React from "react";
+import { Link } from "react-router-dom";
+import "../App.css";
+import Logo from "../images/Logo.svg";
 
+/**
+ * Reusable code for the Navbar component which defines the navbar
+ */
 export default function Navbar() {
   return (
     <header className="logo-header">

@@ -3,6 +3,9 @@ import Navbar from "../Components/navbar";
 import { db } from "../config/firebase";
 import { Link } from "react-router-dom";
 
+/**
+ * Function responsible for adding posts to the database
+ */
 export default function AddPost() {
   const initialState = {
     postName: "",
@@ -12,6 +15,7 @@ export default function AddPost() {
     date: new Date().toLocaleString(),
   };
 
+  // settting up initial state
   const [state, setState] = useState({
     postName: "",
     postContent: "",
@@ -31,6 +35,11 @@ export default function AddPost() {
     setState({ ...state, [name]: value });
   };
 
+  /**
+   * Adds the post with the field data to the firebase database and alerts user on
+   * successful creation of the post
+   * @param e e is the event triggered on form submit
+   */
   const handleSubmit = (e) => {
     e.preventDefault();
     db.collection("posts").add({
@@ -43,6 +52,8 @@ export default function AddPost() {
 
     setState({ ...initialState });
     window.history.back();
+
+    alert("Succesfully created post!");
   };
 
   return (

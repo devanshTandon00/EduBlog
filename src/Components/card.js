@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import "../App.css";
 import { Link } from "react-router-dom";
 
+/**
+ * Created a card component for the blog homepage displaying blog details
+ */
 export default class Card extends Component {
   render() {
     return (

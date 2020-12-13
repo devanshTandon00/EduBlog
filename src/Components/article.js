@@ -3,6 +3,9 @@ import { useLocation } from "react-router";
 import "../App.css";
 import { db } from "../config/firebase";
 
+/**
+ * Function for setting the article page when particular blog is clicked on the homepage
+ */
 export default function Article() {
   let location = useLocation();
 
@@ -14,6 +17,9 @@ export default function Article() {
     postContent: "",
   });
 
+  /**
+   * Fetches all the data from the firebase database about the specific post and sets the state with its value
+   */
   useEffect(() => {
     db.collection("posts")
       .where("postName", "==", location.aboutProps.postName)
@@ -21,11 +27,20 @@ export default function Article() {
       .then((snapshot) => {
         snapshot.forEach((doc) => {
           const data = doc.data();
-          setState({ postName: data.postName, author: data.author, createdAt: data.createdAt, image: data.image, postContent: data.postContent });
+          setState({
+            postName: data.postName,
+            author: data.author,
+            createdAt: data.createdAt,
+            image: data.image,
+            postContent: data.postContent,
+          });
         });
       });
   }, []);
 
+  /**
+   * Renders the information onto the page
+   */
   return (
     <div className="card">
       <h1>{state.postName}</h1>

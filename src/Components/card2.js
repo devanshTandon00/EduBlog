@@ -3,6 +3,10 @@ import "../App.css";
 import { Link } from "react-router-dom";
 import { db } from "../config/firebase";
 
+/**
+ * Creating a card instance for the admin dashboard page with and edit and delete buttons
+ * Fetching data from the database to populate the card fields
+ */
 export default class Card2 extends Component {
   clickHandler(e) {
     db.collection("posts")

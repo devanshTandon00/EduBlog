@@ -3,9 +3,13 @@ import Navbar from "../Components/navbar";
 import { db } from "../config/firebase";
 import { Link, useLocation } from "react-router-dom";
 
+/**
+ * Function responsible for handling the edit post functionality of the blog
+ */
 export default function EditPost() {
   let location = useLocation();
 
+  // setting up the initial state of the page
   const initialState = {
     postName: "",
     postContent: "",
@@ -14,6 +18,7 @@ export default function EditPost() {
     date: new Date().toLocaleString(),
   };
 
+  // using react useState hook to give state to the page
   const [state, setState] = useState({
     postName: "",
     postContent: "",
@@ -22,6 +27,7 @@ export default function EditPost() {
     date: new Date().toLocaleString(),
   });
 
+  // setting the state using the predefined values from the firebase database
   useEffect(() => {
     db.collection("posts")
       .where("postName", "==", location.aboutProps.postName)
@@ -42,12 +48,11 @@ export default function EditPost() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    // console.log(location.aboutProps, state.postName);
-
     // updates the state
     setState({ ...state, [name]: value });
   };
 
+  // updating the data for the fields in the firebase database
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -68,6 +73,7 @@ export default function EditPost() {
       });
 
     setState({ ...initialState });
+    alert("Post succesfully edited!");
   };
 
   return (
@@ -106,8 +112,6 @@ export default function EditPost() {
         </h1>
         <h2 style={{ textAlign: "left", paddingLeft: 30 }}>Edit Post</h2>
 
-        {/* <button onClick={handleSubmit}>Tester</button> */}
-
         <form
           style={{ textAlign: "left", marginLeft: 30, marginBottom: 20 }}
           onSubmit={handleSubmit}
@@ -118,7 +122,7 @@ export default function EditPost() {
               <input
                 type="text"
                 name="postName"
-                value={state.postName}
+                value={state.postName || ""}
                 onChange={handleChange}
                 required={true}
               ></input>
@@ -130,7 +134,7 @@ export default function EditPost() {
                 style={{ height: 500 }}
                 type="text"
                 name="postContent"
-                value={state.postContent}
+                value={state.postContent || ""}
                 onChange={handleChange}
                 required={true}
               ></textarea>
@@ -141,7 +145,7 @@ export default function EditPost() {
               <input
                 type="text"
                 name="image"
-                value={state.image}
+                value={state.image || ""}
                 onChange={handleChange}
                 required={true}
               ></input>
@@ -152,7 +156,7 @@ export default function EditPost() {
               <input
                 type="text"
                 name="authName"
-                value={state.author}
+                value={state.author || ""}
                 onChange={handleChange}
                 required={true}
               ></input>
@@ -163,7 +167,7 @@ export default function EditPost() {
               <input
                 type="text"
                 name="date"
-                value={state.date}
+                value={state.date || ""}
                 onChange={handleChange}
                 readOnly={true}
               ></input>

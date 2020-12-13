@@ -2,8 +2,11 @@ import React, { Component } from "react";
 import Navbar from "../Components/navbar";
 import Card2 from "../Components/card2";
 import { Redirect, Link } from "react-router-dom";
-import firebase, { auth, db } from "../config/firebase";
+import firebase, { db } from "../config/firebase";
 
+/**
+ * Implementation of the admin dashboard displaying the posts and providing sign out functionality
+ */
 export default class Dashboard extends Component {
   constructor() {
     super();
@@ -11,38 +14,16 @@ export default class Dashboard extends Component {
       posts: null,
       signOut: false,
       user: null,
-      // emailHasBeenSent: false,
     };
 
     this.handleSignOut = this.handleSignOut.bind(this);
-    // this.sendResetEmail = this.sendResetEmail.bind(this);
   }
 
   currentUser = firebase.auth().currentUser;
 
-  // sendResetEmail(event) {
-  //   console.log(event);
-  //   const email = this.state.email;
-
-  //   event.preventDefault();
-  //   console.log(this.currentUser.email);
-  //   firebase
-  //     .auth()
-  //     .sendPasswordResetEmail(this.currentUser.email)
-  //     .then(() => {
-  //       console.log(this.currentUser.email);
-  //       this.setState({ emailHasBeenSent: true });
-  //       // setTimeout(() => {
-  //       //   this.setState({ emailHasBeenSent: false });
-  //       // }, 3000);
-  //       console.log(this.state.emailHasBeenSent);
-  //     })
-  //     .catch(() => {
-  //       console.log("error");
-  //       // setError("Error resetting password");
-  //     });
-  // }
-
+  /**
+   * Making request to database to populate the fields on component mount
+   */
   componentDidMount() {
     console.log("mounted");
     db.collection("posts")
