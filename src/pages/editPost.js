@@ -15,7 +15,6 @@ export default function EditPost() {
     postContent: "",
     image: "",
     author: "",
-    date: new Date().toLocaleString(),
   };
 
   // using react useState hook to give state to the page
@@ -24,7 +23,6 @@ export default function EditPost() {
     postContent: "",
     image: "",
     author: "",
-    date: new Date().toLocaleString(),
   });
 
   // setting the state using the predefined values from the firebase database
@@ -38,7 +36,6 @@ export default function EditPost() {
           setState({
             postName: data.postName,
             author: data.author,
-            createdAt: data.createdAt,
             image: data.image,
             postContent: data.postContent,
           });
@@ -159,17 +156,6 @@ export default function EditPost() {
                 value={state.author || ""}
                 onChange={handleChange}
                 required={true}
-              ></input>
-            </div>
-
-            <h3>Date:</h3>
-            <div class="entry">
-              <input
-                type="text"
-                name="date"
-                value={state.date || ""}
-                onChange={handleChange}
-                readOnly={true}
               ></input>
             </div>
           </div>

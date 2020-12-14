@@ -24,11 +24,6 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-            <Link className="navbarBlog" to="/login">
-              Login
-            </Link>
-          </li>
-          <li>
             <Link className="navbarBlog" to="/dashboard">
               Dash
             </Link>

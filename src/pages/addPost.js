@@ -53,7 +53,7 @@ export default function AddPost() {
     setState({ ...initialState });
     window.history.back();
 
-    alert("Succesfully created post!");
+    alert("Successfully created post!");
   };
 
   return (
