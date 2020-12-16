@@ -16,7 +16,7 @@ $ npm i
 Then we will need to install react-router-dom, so we can move between different pages:
 
 ```terminal
-$ npm install npm install react-router-dom
+$ npm install react-router-dom
 ```
 
 ## Usage
